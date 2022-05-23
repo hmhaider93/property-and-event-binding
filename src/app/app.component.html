@@ -1,7 +1,17 @@
 <div class="container">
-  <app-cockpit
+
+  <app-game-control (numemit)="onCheckNumber($event)"></app-game-control>
+
+  <div class="row">
+    <div class="col-xs-12" *ngFor="let data of gameData">
+      <app-even *ngIf="data.type === 'even'" >{{data.num}}</app-even>
+      <app-odd *ngIf="data.type === 'odd'" >{{data.num}}</app-odd>
+    </div>
+  </div>
+
+  <!-- <app-cockpit
     (serverCreated)="onServerAdded($event)"
-    (blueprintCreated)="onBlueprintAdded($event)"
+    (bpCreated)="onBlueprintAdded($event)"
   ></app-cockpit>
   <hr />
   <div class="row">
@@ -11,5 +21,5 @@
         [srvElement]="serverElement"
       ></app-server-element>
     </div>
-  </div>
+  </div> -->
 </div>
